@@ -25,7 +25,7 @@ let printers = [
 
 let install_num_printer s =
   Topdirs.dir_install_printer Format.err_formatter
-                              (Ldot(Lident "Num_top_printers", s))
+                              (Ldot(Location.mknoloc (Lident "Num_top_printers"), s))
 
 let _ =
-  List.iter install_num_printer printers
+  List.iter install_num_printer (List.map Location.mknoloc printers)
